@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginRight="64dp"
+    android:layout_marginLeft="64dp">
+
+    <ImageView
+        android:layout_width="134dp"
+        android:layout_height="134dp"
+        android:id="@+id/profileImage"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/profile"
+        android:adjustViewBounds="false"
+        android:layout_marginTop="24dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp"
+        >
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="First Last"
+            android:gravity="center"
+            android:textSize="24sp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        >
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:text="Height: "
+            android:textSize="18sp"
+            />
+
+        <EditText
+            android:id="@+id/height"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:text="5'11"
+            android:gravity="center"
+            android:textSize="18sp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        >
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:text="Weight: "
+            android:textSize="18sp"
+            />
+
+        <EditText
+            android:id="@+id/weight"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:text="150"
+            android:gravity="center"
+            android:textSize="18sp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        >
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:text="Fitness Level: "
+            android:textSize="18sp"
+            />
+
+        <EditText
+            android:id="@+id/level"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:text="Intermediate"
+            android:gravity="center"
+            android:textSize="18sp"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Save"
+        android:onClick="onSave"
+        />
+</LinearLayout>

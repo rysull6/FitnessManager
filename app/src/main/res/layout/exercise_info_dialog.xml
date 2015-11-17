@@ -1,0 +1,78 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="6dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        >
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:text="Sets: "
+            android:textSize="18sp"
+            android:gravity="center_horizontal"
+            />
+
+        <EditText
+            android:id="@+id/dialog_sets"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="18sp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        >
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:text="Reps: "
+            android:textSize="18sp"
+            android:gravity="center_horizontal"
+            />
+
+        <EditText
+            android:id="@+id/dialog_reps"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="18sp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        >
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:text="Weight: "
+            android:textSize="18sp"
+            android:gravity="center_horizontal"
+            />
+
+        <EditText
+            android:id="@+id/dialog_weight"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="18sp"
+            />
+    </LinearLayout>
+</LinearLayout>

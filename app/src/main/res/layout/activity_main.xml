@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="Fitness Manager"
+        android:textSize="36sp"
+        android:gravity="center"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="48dp">
+    </TextView>
+
+    <Button
+        android:id="@+id/setup"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="Set up a routine"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="64dp"
+        android:onClick="goToSetup">
+    </Button>
+
+    <Button
+        android:id="@+id/workout"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="Log Workout"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="24dp"
+        android:onClick="goToWorkout">
+    </Button>
+    <Button
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="View Progress"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="24dp"
+        android:onClick="goToProgress">
+    </Button>
+    <Button
+        android:id="@+id/profile"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="View Profile"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="24dp"
+        android:onClick="goToProfile">
+    </Button>
+
+</LinearLayout>

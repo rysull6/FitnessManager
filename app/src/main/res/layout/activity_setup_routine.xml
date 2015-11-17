@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/sunday"
+            android:layout_width="52dp"
+            android:layout_height="match_parent"
+            android:text="S"
+            android:onClick="sundayList"/>
+
+        <Button
+            android:id="@+id/monday"
+            android:layout_width="52dp"
+            android:layout_height="match_parent"
+            android:text="M"
+            android:onClick="mondayList"/>
+
+        <Button
+            android:id="@+id/tuesday"
+            android:layout_width="52dp"
+            android:layout_height="match_parent"
+            android:text="T"
+            android:onClick="tuesdayList"/>
+
+        <Button
+            android:id="@+id/wednesday"
+            android:layout_width="52dp"
+            android:layout_height="match_parent"
+            android:text="W"
+            android:onClick="wednesdayList"/>
+
+        <Button
+            android:id="@+id/thursday"
+            android:layout_width="52dp"
+            android:layout_height="match_parent"
+            android:text="Th"
+            android:onClick="thursdayList"/>
+
+        <Button
+            android:id="@+id/friday"
+            android:layout_width="52dp"
+            android:layout_height="match_parent"
+            android:text="F"
+            android:onClick="fridayList"/>
+
+        <Button
+            android:id="@+id/saturday"
+            android:layout_width="52dp"
+            android:layout_height="match_parent"
+            android:text="Sat"
+            android:onClick="saturdayList"/>
+    </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/list_container"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        />
+
+</LinearLayout>
