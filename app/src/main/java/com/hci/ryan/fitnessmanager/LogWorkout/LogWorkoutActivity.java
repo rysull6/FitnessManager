@@ -61,7 +61,7 @@ public class LogWorkoutActivity extends AppCompatActivity {
                 if (item.equals("New Exercise")) {
                     goToAddExercise();
                 } else {
-                    Toast.makeText(LogWorkoutActivity.this, "Woop", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LogWorkoutActivity.this, "Exercise Info In Progress", Toast.LENGTH_SHORT).show();
                 }
             }
 

@@ -61,7 +61,7 @@ public class SetupRoutineActivity extends AppCompatActivity {
                 if (item.equals("New Exercise")) {
                     goToAddExercise();
                 } else {
-                    Toast.makeText(SetupRoutineActivity.this, "Woop", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SetupRoutineActivity.this, "Exercise Info In Progress", Toast.LENGTH_SHORT).show();
                 }
             }
 
