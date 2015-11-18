@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -27,12 +28,28 @@ import java.util.Set;
 public class SetupRoutineActivity extends AppCompatActivity {
 
     String dayString;
+    Button _monday;
+    Button _tuesday;
+    Button _wednesday;
+    Button _thursday;
+    Button _friday;
+    Button _saturday;
+    Button _sunday;
+
     int i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup_routine);
+        _monday = (Button) findViewById(R.id.monday);
+        _tuesday = (Button) findViewById(R.id.tuesday);
+        _wednesday = (Button) findViewById(R.id.wednesday);
+        _thursday = (Button) findViewById(R.id.thursday);
+        _friday = (Button) findViewById(R.id.friday);
+        _saturday = (Button) findViewById(R.id.saturday);
+        _sunday = (Button) findViewById(R.id.sunday);
+        resetDaySelected();
         dayString = getCurrentDay();
         try {
             setArrayList(getExerciseList(dayString));
@@ -155,24 +172,33 @@ public class SetupRoutineActivity extends AppCompatActivity {
         int day = calendar.get(Calendar.DAY_OF_WEEK);
         switch (day) {
             case Calendar.SUNDAY:
+                _sunday.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 return "S";
             case Calendar.MONDAY:
+                _monday.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 return "M";
             case Calendar.TUESDAY:
+                _tuesday.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 return "T";
             case Calendar.WEDNESDAY:
+                _wednesday.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 return "M";
             case Calendar.THURSDAY:
+                _thursday.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 return "Th";
             case Calendar.FRIDAY:
+                _friday.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 return "F";
             case Calendar.SATURDAY:
+                _saturday.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 return "Sat";
         }
         return "";
     }
 
     public void mondayList(View view) throws IOException {
+        resetDaySelected();
+        _monday.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
         dayString = "M";
         Set<String> dayList = getExerciseList(dayString);
         setSetItem("exerciseList" + dayString, dayList);
@@ -180,6 +206,8 @@ public class SetupRoutineActivity extends AppCompatActivity {
     }
 
     public void tuesdayList(View view) throws IOException {
+        resetDaySelected();
+        _tuesday.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
         dayString = "T";
         Set<String> dayList = getExerciseList(dayString);
         setSetItem("exerciseList" + dayString, dayList);
@@ -187,6 +215,8 @@ public class SetupRoutineActivity extends AppCompatActivity {
     }
 
     public void wednesdayList(View view) throws IOException {
+        resetDaySelected();
+        _wednesday.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
         dayString = "W";
         Set<String> dayList = getExerciseList(dayString);
         setSetItem("exerciseList" + dayString, dayList);
@@ -194,6 +224,8 @@ public class SetupRoutineActivity extends AppCompatActivity {
     }
 
     public void thursdayList(View view) throws IOException {
+        resetDaySelected();
+        _thursday.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
         dayString = "TH";
         Set<String> dayList = getExerciseList(dayString);
         setSetItem("exerciseList" + dayString, dayList);
@@ -201,6 +233,8 @@ public class SetupRoutineActivity extends AppCompatActivity {
     }
 
     public void fridayList(View view) throws IOException {
+        resetDaySelected();
+        _friday.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
         dayString = "F";
         Set<String> dayList = getExerciseList(dayString);
         setSetItem("exerciseList" + dayString, dayList);
@@ -208,6 +242,8 @@ public class SetupRoutineActivity extends AppCompatActivity {
     }
 
     public void saturdayList(View view) throws IOException {
+        resetDaySelected();
+        _saturday.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
         dayString = "Sat";
         Set<String> dayList = getExerciseList(dayString);
         setSetItem("exerciseList" + dayString, dayList);
@@ -215,10 +251,24 @@ public class SetupRoutineActivity extends AppCompatActivity {
     }
 
     public void sundayList(View view) throws IOException {
+        resetDaySelected();
+        _sunday.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
         dayString = "Sun";
         Set<String> dayList = getExerciseList(dayString);
         setSetItem("exerciseList" + dayString, dayList);
         setArrayList(dayList);
+    }
+
+    public void resetDaySelected()
+    {
+
+        _sunday.setBackgroundResource(android.R.drawable.btn_default);
+        _monday.setBackgroundResource(android.R.drawable.btn_default);
+        _tuesday.setBackgroundResource(android.R.drawable.btn_default);
+        _wednesday.setBackgroundResource(android.R.drawable.btn_default);
+        _thursday.setBackgroundResource(android.R.drawable.btn_default);
+        _friday.setBackgroundResource(android.R.drawable.btn_default);
+        _saturday.setBackgroundResource(android.R.drawable.btn_default);
     }
 
 }
