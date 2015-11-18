@@ -1,6 +1,7 @@
 package com.hci.ryan.fitnessmanager.SetupRoutine;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.hci.ryan.fitnessmanager.AddExercise.AddExerciseActivity;
 import com.hci.ryan.fitnessmanager.Common;
 import com.hci.ryan.fitnessmanager.R;
 
@@ -56,15 +58,9 @@ public class SetupRoutineActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, final View view,
                                     int position, long id) {
                 final String item = (String) parent.getItemAtPosition(position);
-                if (item.equals("New Exercise"))
-                {
-                    values.add("Test " + i);
-                    i++;
-                    setSetItem("exerciseList" + dayString, values);
-                    setArrayList(values);
-                }
-                else
-                {
+                if (item.equals("New Exercise")) {
+                    goToAddExercise();
+                } else {
                     Toast.makeText(SetupRoutineActivity.this, "Woop", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -97,6 +93,33 @@ public class SetupRoutineActivity extends AppCompatActivity {
 
     }
 
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
+        if (requestCode == 0) {
+            if (resultCode == RESULT_OK) {
+                dayString = readUserInformation("lastDay");
+                data.getStringExtra("ExerciseLabel");
+                Set<String> values = null;
+                try {
+                    values = getExerciseList(dayString);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                values.add(data.getStringExtra("ExerciseLabel"));
+                setSetItem("exerciseList" + dayString, values);
+                setArrayList(values);
+            }
+        }
+    }
+
+    public void goToAddExercise()
+    {
+        setItem("lastDay", dayString);
+        Intent intent = new Intent(this, AddExerciseActivity.class);
+        startActivityForResult(intent, 0);
+    }
+
     private String readUserInformation(String key)
     {
         SharedPreferences prefs = getSharedPreferences(Common.MY_PREFS_NAME, MODE_PRIVATE);
@@ -110,6 +133,14 @@ public class SetupRoutineActivity extends AppCompatActivity {
         editor.putStringSet(key, value);
         editor.apply();
     }
+
+    private void setItem(String key, String value)
+    {
+        SharedPreferences.Editor editor = getSharedPreferences(Common.MY_PREFS_NAME, MODE_PRIVATE).edit();
+        editor.putString(key, value);
+        editor.apply();
+    }
+
     private Set<String> getExerciseList(String day) throws IOException {
         SharedPreferences prefs = getSharedPreferences(Common.MY_PREFS_NAME, MODE_PRIVATE);
         Set<String> newList = new HashSet<String>();

@@ -25,6 +25,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:textSize="18sp"
+            android:inputType="number"
             />
     </LinearLayout>
 
@@ -49,6 +50,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:textSize="18sp"
+            android:inputType="number"
             />
     </LinearLayout>
 
@@ -62,7 +64,7 @@
         <TextView
             android:layout_width="120dp"
             android:layout_height="60dp"
-            android:text="Weight: "
+            android:text="Weight(lbs): "
             android:textSize="18sp"
             android:gravity="center_horizontal"
             />
@@ -73,6 +75,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:textSize="18sp"
+            android:inputType="number"
             />
     </LinearLayout>
 </LinearLayout>

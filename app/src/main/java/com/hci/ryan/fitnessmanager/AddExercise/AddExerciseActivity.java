@@ -1,7 +1,6 @@
 package com.hci.ryan.fitnessmanager.AddExercise;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +11,6 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hci.ryan.fitnessmanager.ExerciseInfoDialog;
 import com.hci.ryan.fitnessmanager.R;
@@ -23,7 +21,7 @@ import java.util.Arrays;
 /**
  * Created by Ryan on 11/16/2015.
  */
-public class AddExerciseActivity extends AppCompatActivity implements ExerciseInfoDialog.ExerciseInfoDialogListener {
+public class AddExerciseActivity extends AppCompatActivity{
 
     String currentExercise = "";
 
@@ -36,7 +34,7 @@ public class AddExerciseActivity extends AppCompatActivity implements ExerciseIn
         final String[] allExercises = new String[] {
                 "Bench Press", "Bicep Curls", "Pull Ups", "Preacher Curls", "Overhead Press",
                 "Squats", "Leg Press", "Deadlifts", "Lat Pulldowns", "Running",
-                "Swimming", "Push Ups", "Sit Ups"};;
+                "Swimming", "Push Ups", "Sit Ups"};
         ArrayList<String> arrayList = new ArrayList( Arrays.asList( allExercises ) );
         MyListAdapter adapter = new MyListAdapter(this,arrayList);
 
@@ -54,28 +52,8 @@ public class AddExerciseActivity extends AppCompatActivity implements ExerciseIn
 
     public void showDialog() {
         // Create an instance of the dialog fragment and show it
-        DialogFragment dialog = new ExerciseInfoDialog();
+        DialogFragment dialog = new ExerciseInfoDialog(currentExercise);
         dialog.show(getSupportFragmentManager(), "ExerciseInfoDialog");
-    }
-
-
-        public void goToPreviousScreen()
-    {
-        Intent i = new Intent();
-        i.putExtra("ExerciseLabel", currentExercise);  // insert your extras here
-        setResult(0, i);
-        finish();
-    }
-
-    @Override
-    public void onDialogPositiveClick(DialogFragment dialog)
-    {
-        goToPreviousScreen();
-    }
-
-    @Override
-    public void onDialogNegativeClick(DialogFragment dialog) {
-        dialog.dismiss();
     }
 
     public class MyListAdapter extends BaseAdapter {
@@ -124,7 +102,6 @@ public class AddExerciseActivity extends AppCompatActivity implements ExerciseIn
             name.setText(exercise);
             return row;
         }
-
     }
 
 }

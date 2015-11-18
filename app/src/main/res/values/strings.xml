@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">FitnessManager</string>
     <string name="action_settings">Settings</string>
+    <string-array name="timespan_array">
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>Monthly</item>
+    </string-array>
+    <string-array name="types_array">
+        <item>Calories Burned</item>
+        <item>Time Spent</item>
+    </string-array>
 </resources>
+

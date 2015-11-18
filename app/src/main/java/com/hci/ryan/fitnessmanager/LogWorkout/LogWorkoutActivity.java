@@ -96,6 +96,7 @@ public class LogWorkoutActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
         if (requestCode == 0) {
+            if( resultCode == RESULT_OK) {
                 // A contact was picked.  Here we will just display it
                 // to the user.
                 data.getStringExtra("ExerciseLabel");
@@ -108,6 +109,7 @@ public class LogWorkoutActivity extends AppCompatActivity {
                 values.add(data.getStringExtra("ExerciseLabel"));
                 setSetItem("exerciseList" + getCurrentDay(), values);
                 setArrayList(values);
+            }
         }
     }
 
