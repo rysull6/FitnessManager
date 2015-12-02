@@ -65,6 +65,8 @@ public class SetupRoutineActivity extends AppCompatActivity {
         while (iter.hasNext()) {
             list.add(iter.next());
         }
+
+        list.add(0, "New Exercise");
         final StableArrayAdapter adapter = new StableArrayAdapter(this,
                 android.R.layout.simple_list_item_1, list);
         listview.setAdapter(adapter);
@@ -161,7 +163,7 @@ public class SetupRoutineActivity extends AppCompatActivity {
     private Set<String> getExerciseList(String day) throws IOException {
         SharedPreferences prefs = getSharedPreferences(Common.MY_PREFS_NAME, MODE_PRIVATE);
         Set<String> newList = new HashSet<String>();
-        newList.add("New Exercise");
+        //newList.add("New Exercise");
         Set<String> list = prefs.getStringSet("exerciseList" + day, newList);//"No name defined" is the default value.
         return list;
     }
@@ -182,7 +184,7 @@ public class SetupRoutineActivity extends AppCompatActivity {
                 return "T";
             case Calendar.WEDNESDAY:
                 _wednesday.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
-                return "M";
+                return "W";
             case Calendar.THURSDAY:
                 _thursday.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 return "Th";

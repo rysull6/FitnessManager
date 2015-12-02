@@ -17,7 +17,16 @@
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"
         android:layout_width="match_parent"
-        android:layout_height="360dp"
+        android:layout_height="300dp"
         />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingTop="4dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:text="Complete Workout"
+        android:onClick="onComplete"/>
 
 </LinearLayout>

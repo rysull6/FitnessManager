@@ -4,7 +4,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.hci.ryan.fitnessmanager.Common;
 import com.hci.ryan.fitnessmanager.R;
@@ -13,7 +15,7 @@ public class ViewProfileActivity extends AppCompatActivity {
     EditText _userName;
     EditText _userHeight;
     EditText _userWeight;
-    EditText _userLevel;
+    Spinner _userLevel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +24,11 @@ public class ViewProfileActivity extends AppCompatActivity {
         _userName = (EditText) findViewById(R.id.name);
         _userHeight = (EditText) findViewById(R.id.height);
         _userWeight = (EditText) findViewById(R.id.weight);
-        _userLevel = (EditText) findViewById(R.id.level);
+        _userLevel = (Spinner) findViewById(R.id.level);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+        R.array.fitness_levels, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        _userLevel.setAdapter(adapter);
         setUserInformation();
     }
 
@@ -35,7 +41,7 @@ public class ViewProfileActivity extends AppCompatActivity {
         String weight = readUserInformation("weight");
         _userWeight.setText(weight);
         String level = readUserInformation("level");
-        _userLevel.setText(level);
+        _userLevel.setSelection(getPosition(level));
     }
 
     private String readUserInformation(String key)
@@ -57,7 +63,25 @@ public class ViewProfileActivity extends AppCompatActivity {
         setItem("name", _userName.getText().toString());
         setItem("height", _userHeight.getText().toString());
         setItem("weight", _userWeight.getText().toString());
-        setItem("level", _userLevel.getText().toString());
+        setItem("level", _userLevel.getSelectedItem().toString());
+        finish();
     }
+
+    public int getPosition(String stringLevel)
+    {
+        if (stringLevel.equals("Beginner"))
+        {
+            return 0;
+        }
+        else if(stringLevel.equals("Intermediate"))
+        {
+            return 1;
+        }
+        else
+        {
+            return 2;
+        }
+    }
+
 
 }

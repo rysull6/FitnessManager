@@ -53,6 +53,9 @@
         <activity
             android:name=".AddExercise.AddExerciseActivity"
             android:label="AddExercise">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
     </application>
 

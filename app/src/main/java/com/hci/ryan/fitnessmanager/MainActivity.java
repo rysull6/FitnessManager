@@ -64,10 +64,10 @@ public class MainActivity extends AppCompatActivity {
     private void initStorage() throws IOException {
         if(!isStorageInitialized()) {
             SharedPreferences.Editor editor = getSharedPreferences(Common.MY_PREFS_NAME, MODE_PRIVATE).edit();
-            editor.putString("name", "First Last");
-            editor.putString("height", "5'11");
-            editor.putString("level", "Intermediate");
-            editor.putString("weight", "150");
+            editor.putString("name", "");
+            editor.putString("height", "");
+            editor.putString("level", "Beginner");
+            editor.putString("weight", "");
             editor.apply();
         }
     }

@@ -10,5 +10,10 @@
         <item>Calories Burned</item>
         <item>Time Spent</item>
     </string-array>
+    <string-array name="fitness_levels">
+        <item>Beginner</item>
+        <item>Intermediate</item>
+        <item>Expert</item>
+    </string-array>
 </resources>
 
