@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">FitnessManager</string>
+    <string name="whatsNewText">To get started managing your fitness, please enter some information about yourself.</string>
+    <string name="whatsNewTitle">Welcome!</string>
     <string name="action_settings">Settings</string>
     <string-array name="timespan_array">
         <item>Daily</item>
@@ -14,6 +16,20 @@
         <item>Beginner</item>
         <item>Intermediate</item>
         <item>Expert</item>
+    </string-array>
+    <string-array name="fitness_hours">
+        <item>1</item>
+        <item>3</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="fitness_goals">
+        <item>To Get Stronger</item>
+        <item>To Improve Cardio</item>
+        <item>To Improve General Fitness</item>
+    </string-array>
+    <string-array name="date_range">
+        <item>Weekly</item>
+        <item>Daily</item>
     </string-array>
 </resources>
 

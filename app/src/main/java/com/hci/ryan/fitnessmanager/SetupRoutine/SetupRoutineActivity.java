@@ -1,20 +1,22 @@
 package com.hci.ryan.fitnessmanager.SetupRoutine;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.hci.ryan.fitnessmanager.AddExercise.AddExerciseActivity;
 import com.hci.ryan.fitnessmanager.Common;
 import com.hci.ryan.fitnessmanager.R;
+import com.hci.ryan.fitnessmanager.SetupRoutineDialog;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,7 +27,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-public class SetupRoutineActivity extends AppCompatActivity {
+public class SetupRoutineActivity extends AppCompatActivity implements DialogInterface.OnDismissListener{
 
     String dayString;
     Button _monday;
@@ -35,8 +37,6 @@ public class SetupRoutineActivity extends AppCompatActivity {
     Button _friday;
     Button _saturday;
     Button _sunday;
-
-    int i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +57,7 @@ public class SetupRoutineActivity extends AppCompatActivity {
         }
     }
 
-    private void setArrayList(final Set<String> values)
+    public void setArrayList(final Set<String> values)
     {
         final ListView listview = (ListView) findViewById(R.id.list_container);
         final ArrayList<String> list = new ArrayList<String>();
@@ -80,12 +80,32 @@ public class SetupRoutineActivity extends AppCompatActivity {
                 if (item.equals("New Exercise")) {
                     goToAddExercise();
                 } else {
-                    Toast.makeText(SetupRoutineActivity.this, "Exercise Info In Progress", Toast.LENGTH_SHORT).show();
+                    try {
+                        showDialog(item, values);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
 
         });
     }
+
+    public void showDialog(String currentExercise, Set<String> list) throws IOException {
+        // Create an instance of the dialog fragment and show it
+        DialogFragment dialog = new SetupRoutineDialog(currentExercise, dayString, list);
+        dialog.show(getSupportFragmentManager(), "ExerciseInfoDialog");
+    }
+
+    @Override
+    public void onDismiss(DialogInterface dialog) {
+        try {
+            setArrayList(getExerciseList(dayString));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     private class StableArrayAdapter extends ArrayAdapter<String> {
 
@@ -136,6 +156,7 @@ public class SetupRoutineActivity extends AppCompatActivity {
     {
         setItem("lastDay", dayString);
         Intent intent = new Intent(this, AddExerciseActivity.class);
+        intent.putExtra("dayValue", dayString);
         startActivityForResult(intent, 0);
     }
 
@@ -228,7 +249,7 @@ public class SetupRoutineActivity extends AppCompatActivity {
     public void thursdayList(View view) throws IOException {
         resetDaySelected();
         _thursday.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
-        dayString = "TH";
+        dayString = "Th";
         Set<String> dayList = getExerciseList(dayString);
         setSetItem("exerciseList" + dayString, dayList);
         setArrayList(dayList);
@@ -263,7 +284,6 @@ public class SetupRoutineActivity extends AppCompatActivity {
 
     public void resetDaySelected()
     {
-
         _sunday.setBackgroundResource(android.R.drawable.btn_default);
         _monday.setBackgroundResource(android.R.drawable.btn_default);
         _tuesday.setBackgroundResource(android.R.drawable.btn_default);
@@ -272,5 +292,4 @@ public class SetupRoutineActivity extends AppCompatActivity {
         _friday.setBackgroundResource(android.R.drawable.btn_default);
         _saturday.setBackgroundResource(android.R.drawable.btn_default);
     }
-
 }

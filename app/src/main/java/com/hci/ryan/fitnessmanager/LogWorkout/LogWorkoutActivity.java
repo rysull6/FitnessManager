@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 
 import com.hci.ryan.fitnessmanager.AddExercise.AddExerciseActivity;
 import com.hci.ryan.fitnessmanager.Common;
+import com.hci.ryan.fitnessmanager.ExerciseActualDialog;
+import com.hci.ryan.fitnessmanager.ExerciseInfoDialog;
 import com.hci.ryan.fitnessmanager.R;
 
 import java.io.IOException;
@@ -61,12 +64,19 @@ public class LogWorkoutActivity extends AppCompatActivity {
                 final String item = (String) parent.getItemAtPosition(position);
                 if (item.equals("New Exercise")) {
                     goToAddExercise();
-                } else {
-                    Toast.makeText(LogWorkoutActivity.this, "Exercise Info In Progress", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    showDialog(item);
                 }
             }
 
         });
+    }
+
+    public void showDialog(String currentExercise) {
+        // Create an instance of the dialog fragment and show it
+        DialogFragment dialog = new ExerciseActualDialog(currentExercise, dayString);
+        dialog.show(getSupportFragmentManager(), "ExerciseInfoDialog");
     }
 
     private class StableArrayAdapter extends ArrayAdapter<String> {
@@ -117,6 +127,7 @@ public class LogWorkoutActivity extends AppCompatActivity {
     public void goToAddExercise()
     {
         Intent intent = new Intent(this, AddExerciseActivity.class);
+        intent.putExtra("dayValue", dayString);
         startActivityForResult(intent, 0);
     }
 
@@ -149,7 +160,6 @@ public class LogWorkoutActivity extends AppCompatActivity {
     private Set<String> getExerciseList(String day) throws IOException {
         SharedPreferences prefs = getSharedPreferences(Common.MY_PREFS_NAME, MODE_PRIVATE);
         Set<String> newList = new HashSet<String>();
-//        newList.add("New Exercise");
         Set<String> list = prefs.getStringSet("exerciseList" + day, newList);//"No name defined" is the default value.
         return list;
     }

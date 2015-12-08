@@ -57,6 +57,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+        <activity
+            android:name=".OnboardingActivity"
+            android:label="Welcome">
+        </activity>
+        <activity
+            android:name=".OnboardingActivity2"
+            android:label="Welcome">
+        </activity>
     </application>
 
 </manifest>

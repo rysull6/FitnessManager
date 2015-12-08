@@ -16,19 +16,25 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.hci.ryan.fitnessmanager.SetupRoutine.SetupRoutineActivity;
+
+import java.util.Set;
+
 /**
  * Created by Ryan on 11/17/2015.
  */
-public class ExerciseInfoDialog extends android.support.v4.app.DialogFragment {
+public class SetupRoutineDialog extends android.support.v4.app.DialogFragment {
 
     String exercise;
     String dayString;
+    Set<String> list;
     EditText sets;
     EditText reps;
     EditText weight;
-    public ExerciseInfoDialog(String exercise, String dayString) {
+    public SetupRoutineDialog(String exercise, String dayString, Set<String> list) {
         this.exercise = exercise;
         this.dayString = dayString;
+        this.list = list;
     }
 
     @Override
@@ -52,22 +58,40 @@ public class ExerciseInfoDialog extends android.support.v4.app.DialogFragment {
                 setItem(dayString + "_" + exercise + "_reps", reps.getText().toString());
                 setItem(dayString + "_" + exercise + "_sets", sets.getText().toString());
                 setItem(dayString + "_" + exercise + "_weight", weight.getText().toString());
-                Intent i = new Intent();
-                i.putExtra("ExerciseLabel", exercise);  // insert your extras here
-                getActivity().setResult(Activity.RESULT_OK, i);
-                getActivity().finish();
+                SetupRoutineDialog.this.getDialog().cancel();
             }
         });
 
         Button neg = (Button)v.findViewById(R.id.negButton);
+        neg.setText("Remove");
         neg.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // When button is clicked, call up to owning activity.
-                ExerciseInfoDialog.this.getDialog().cancel();
+                list.remove(exercise);
+                setSetItem("exerciseList" + dayString, list);
+                final Activity activity = getActivity();
+                if (activity instanceof DialogInterface.OnDismissListener) {
+                    ((DialogInterface.OnDismissListener) activity).onDismiss(SetupRoutineDialog.this.getDialog());
+                }
+                SetupRoutineDialog.this.getDialog().cancel();
             }
         });
 
         return v;
+    }
+
+    @Override
+    public void onDismiss(final DialogInterface dialog) {
+        super.onDismiss(dialog);
+
+    }
+
+
+    private void setSetItem(String key, Set<String> value)
+    {
+        SharedPreferences.Editor editor = getActivity().getSharedPreferences(Common.MY_PREFS_NAME, Context.MODE_PRIVATE).edit();
+        editor.putStringSet(key, value);
+        editor.apply();
     }
 
 

@@ -1,8 +1,10 @@
 package com.hci.ryan.fitnessmanager;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +18,8 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
+    SharedPreferences mPrefs;
+    final String welcomeScreenShownPref = "welcomeScreenShown";
     Button _setUpButton;
     Button _workoutButton;
     Button _progressButton;
@@ -24,6 +28,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // second argument is the default to use if the preference can't be found
+        Boolean welcomeScreenShown = mPrefs.getBoolean(welcomeScreenShownPref, false);
+
+        if (!welcomeScreenShown) {
+            // here you can launch another activity if you like
+            // the code below will display a popup
+            Intent intent = new Intent(this, OnboardingActivity.class);
+            startActivity(intent);
+        }
         try {
             initStorage();
         } catch (IOException e) {
@@ -33,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
         _workoutButton = (Button)findViewById(R.id.workout);
         _progressButton = (Button)findViewById(R.id.progress);
         _profileButton = (Button)findViewById(R.id.profile);
+        SharedPreferences.Editor editor = mPrefs.edit();
+        editor.putBoolean(welcomeScreenShownPref, true);
+        editor.commit();
     }
 
     public void goToSetup(View view)
@@ -40,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SetupRoutineActivity.class);
         startActivity(intent);
     }
-
 
     public void goToWorkout(View view)
     {

@@ -4,12 +4,35 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="6dp">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
         android:gravity="center"
-        android:textSize="18sp"
-        android:text="Goals"/>
+        >
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:gravity="center"
+
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:textSize="18sp"
+            android:text="Goal"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="30dp"
+            android:textSize="18sp"
+            android:text="Actual"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,18 +41,30 @@
         >
 
         <TextView
-            android:layout_width="120dp"
+            android:gravity="center"
+
+            android:layout_width="100dp"
             android:layout_height="60dp"
             android:text="Sets: "
+            android:textSize="16sp"
+
+            />
+
+        <TextView
+            android:id="@+id/goalSets"
+            android:gravity="center"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:text="label"
             android:textSize="18sp"
-            android:gravity="center_horizontal"
+
             />
 
         <EditText
-            android:id="@+id/dialog_sets"
-            android:layout_width="120dp"
-            android:layout_height="match_parent"
+            android:id="@+id/dialog_sets_actual"
             android:gravity="center"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
             android:textSize="18sp"
             android:inputType="number"
             />
@@ -43,16 +78,27 @@
         >
 
         <TextView
-            android:layout_width="120dp"
+            android:gravity="center"
+
+            android:layout_width="100dp"
             android:layout_height="60dp"
             android:text="Reps: "
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:gravity="center"
+            android:id="@+id/goalReps"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:text="label"
             android:textSize="18sp"
-            android:gravity="center_horizontal"
+
             />
 
         <EditText
-            android:id="@+id/dialog_reps"
-            android:layout_width="120dp"
+            android:id="@+id/dialog_reps_actual"
+            android:layout_width="80dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:textSize="18sp"
@@ -68,16 +114,26 @@
         >
 
         <TextView
-            android:layout_width="120dp"
+            android:gravity="center"
+            android:layout_width="100dp"
             android:layout_height="60dp"
             android:text="Weight(lbs): "
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:gravity="center"
+            android:id="@+id/goalWeight"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:text="label"
             android:textSize="18sp"
-            android:gravity="center_horizontal"
+
             />
 
         <EditText
-            android:id="@+id/dialog_weight"
-            android:layout_width="120dp"
+            android:id="@+id/dialog_weight_actual"
+            android:layout_width="80dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:textSize="18sp"
@@ -90,18 +146,19 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/negButton"
+            android:id="@+id/negButton_actual"
             android:layout_width="120dp"
             android:layout_height="60dp"
             android:layout_gravity="left"
+            android:layout_marginRight="24dp"
             android:text="Cancel"/>
 
         <Button
-            android:id="@+id/posButton"
+            android:id="@+id/posButton_actual"
             android:layout_width="120dp"
             android:layout_height="60dp"
-            android:layout_gravity="right"
-            android:text="Save"/>
+            android:layout_gravity="end"
+            android:text="Complete"/>
 
     </LinearLayout>
 </LinearLayout>

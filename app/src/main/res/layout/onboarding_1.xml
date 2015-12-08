@@ -1,62 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="6dp">
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginRight="64dp"
+    android:layout_marginLeft="64dp">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="30dp"
         android:gravity="center"
-        android:textSize="18sp"
-        android:text="Goals"/>
+        android:layout_height="80dp"
+        android:text="Welcome To The Fitness Manager!"
+        android:textSize="24sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="60dp"
+        android:text="To get started, please fill out the following information."
+        android:textSize="16sp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal"
+        android:layout_marginTop="6dp"
         >
 
-        <TextView
-            android:layout_width="120dp"
-            android:layout_height="60dp"
-            android:text="Sets: "
-            android:textSize="18sp"
-            android:gravity="center_horizontal"
-            />
-
         <EditText
-            android:id="@+id/dialog_sets"
-            android:layout_width="120dp"
+            android:id="@+id/name"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:hint="First Last"
             android:gravity="center"
-            android:textSize="18sp"
-            android:inputType="number"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="4dp"
-        >
-
-        <TextView
-            android:layout_width="120dp"
-            android:layout_height="60dp"
-            android:text="Reps: "
-            android:textSize="18sp"
-            android:gravity="center_horizontal"
-            />
-
-        <EditText
-            android:id="@+id/dialog_reps"
-            android:layout_width="120dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:textSize="18sp"
-            android:inputType="number"
+            android:textSize="24sp"
             />
     </LinearLayout>
 
@@ -70,38 +46,71 @@
         <TextView
             android:layout_width="120dp"
             android:layout_height="60dp"
-            android:text="Weight(lbs): "
+            android:text="Height: "
             android:textSize="18sp"
-            android:gravity="center_horizontal"
             />
 
         <EditText
-            android:id="@+id/dialog_weight"
+            android:id="@+id/height"
             android:layout_width="120dp"
             android:layout_height="match_parent"
+            android:hint="ft' in"
             android:gravity="center"
             android:textSize="18sp"
-            android:inputType="number"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        >
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:text="Weight (lbs): "
+            android:textSize="18sp"
+            />
+
+        <EditText
+            android:id="@+id/weight"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:hint="lbs"
+            android:gravity="center"
+            android:textSize="18sp"
             />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        >
 
-        <Button
-            android:id="@+id/negButton"
+        <TextView
             android:layout_width="120dp"
             android:layout_height="60dp"
-            android:layout_gravity="left"
-            android:text="Cancel"/>
+            android:text="Fitness Level: "
+            android:textSize="18sp"
+            />
 
-        <Button
-            android:id="@+id/posButton"
+        <Spinner
+            android:id="@+id/level"
             android:layout_width="120dp"
-            android:layout_height="60dp"
-            android:layout_gravity="right"
-            android:text="Save"/>
-
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="18sp"
+            />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Next"
+        android:onClick="onNext"
+        />
 </LinearLayout>
