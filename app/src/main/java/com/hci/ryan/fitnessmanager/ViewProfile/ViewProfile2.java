@@ -1,4 +1,4 @@
-package com.hci.ryan.fitnessmanager;
+package com.hci.ryan.fitnessmanager.ViewProfile;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,6 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.hci.ryan.fitnessmanager.Common;
+import com.hci.ryan.fitnessmanager.R;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -16,7 +19,7 @@ import java.util.Set;
 /**
  * Created by Ryan on 12/3/2015.
  */
-public class OnboardingActivity2 extends AppCompatActivity {
+public class ViewProfile2 extends AppCompatActivity {
 
     Spinner _hours;
     Spinner _goal;

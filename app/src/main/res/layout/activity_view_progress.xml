@@ -4,6 +4,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/noProgress"
+        android:visibility="gone"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="In order to view your progress, please setup a workout routine."
+        android:textSize="22sp"
+        android:gravity="center"/>
+
     <com.jjoe64.graphview.GraphView
         android:layout_marginTop="60dp"
         android:layout_gravity="center"

@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 public class SetupRoutineActivity extends AppCompatActivity implements DialogInterface.OnDismissListener{
@@ -184,10 +185,24 @@ public class SetupRoutineActivity extends AppCompatActivity implements DialogInt
     private Set<String> getExerciseList(String day) throws IOException {
         SharedPreferences prefs = getSharedPreferences(Common.MY_PREFS_NAME, MODE_PRIVATE);
         Set<String> newList = new HashSet<String>();
-        //newList.add("New Exercise");
         Set<String> list = prefs.getStringSet("exerciseList" + day, newList);//"No name defined" is the default value.
         return list;
     }
+
+    public void clearArrayOfWeights() throws IOException {
+        Set<String> set = getExerciseList(dayString);
+        Iterator<String> iter = set.iterator();
+        while (iter.hasNext()) {
+            setItem(dayString + "_" + iter.next() + "_weight", "");
+            try
+            {
+                setItem(dayString + "_" + iter.next() + "_weight_actual", "");
+            }
+            catch (NoSuchElementException e){
+
+            }
+        }
+}
 
     private String getCurrentDay()
     {
@@ -217,6 +232,13 @@ public class SetupRoutineActivity extends AppCompatActivity implements DialogInt
                 return "Sat";
         }
         return "";
+    }
+
+    public void clearDay(View view) throws IOException {
+        Set<String> newList = new HashSet<String>();
+        clearArrayOfWeights();
+        setSetItem("exerciseList" + dayString, newList);
+        setArrayList(newList);
     }
 
     public void mondayList(View view) throws IOException {

@@ -1,14 +1,19 @@
 package com.hci.ryan.fitnessmanager.ViewProfile;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.hci.ryan.fitnessmanager.Common;
+import com.hci.ryan.fitnessmanager.OnboardingActivity2;
 import com.hci.ryan.fitnessmanager.R;
 
 public class ViewProfileActivity extends AppCompatActivity {
@@ -32,6 +37,33 @@ public class ViewProfileActivity extends AppCompatActivity {
         setUserInformation();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.ab_next, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.actionNext:
+                setItem("name", _userName.getText().toString());
+                setItem("height", _userHeight.getText().toString());
+                setItem("weight", _userWeight.getText().toString());
+                setItem("level", _userLevel.getSelectedItem().toString());
+                Intent intent = new Intent(this, OnboardingActivity2.class);
+                startActivity(intent);
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+
     private void setUserInformation()
     {
         String name = readUserInformation("name");
@@ -42,6 +74,16 @@ public class ViewProfileActivity extends AppCompatActivity {
         _userWeight.setText(weight);
         String level = readUserInformation("level");
         _userLevel.setSelection(getPosition(level));
+    }
+
+    public void onNext(View view)
+    {
+        setItem("name", _userName.getText().toString());
+        setItem("height", _userHeight.getText().toString());
+        setItem("weight", _userWeight.getText().toString());
+        setItem("level", _userLevel.getSelectedItem().toString());
+        Intent intent = new Intent(this, OnboardingActivity2.class);
+        startActivity(intent);
     }
 
     private String readUserInformation(String key)

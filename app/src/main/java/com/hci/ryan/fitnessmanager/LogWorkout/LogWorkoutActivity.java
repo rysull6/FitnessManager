@@ -176,7 +176,7 @@ public class LogWorkoutActivity extends AppCompatActivity {
             case Calendar.TUESDAY:
                 return "T";
             case Calendar.WEDNESDAY:
-                return "M";
+                return "W";
             case Calendar.THURSDAY:
                 return "Th";
             case Calendar.FRIDAY:

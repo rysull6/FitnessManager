@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginRight="64dp"
+    android:layout_marginLeft="64dp"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="60dp"
+        android:text="Roughly how many hours per week do you plan to work out?"
+        android:textSize="16sp"/>
+
+    <Spinner
+        android:id="@+id/hours_per_week"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="60dp"
+        android:text="What is your fitness goal?"
+        android:textSize="16sp"/>
+
+    <Spinner
+        android:id="@+id/fitness_goal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:textSize="18sp"
+        />
+
+    <Button
+        android:id="@+id/generate"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Generate Workout Routine"
+        android:onClick="onGenerate"
+        />
+</LinearLayout>

@@ -20,7 +20,7 @@
         </activity>
         <activity
             android:name=".SetupRoutine.SetupRoutineActivity"
-            android:label="SetupRoutine"
+            android:label="Setup Routine"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -28,7 +28,7 @@
         </activity>
         <activity
             android:name=".LogWorkout.LogWorkoutActivity"
-            android:label="LogWorkout"
+            android:label="Log Workout"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -36,7 +36,7 @@
         </activity>
         <activity
             android:name=".ViewProfile.ViewProfileActivity"
-            android:label="ViewProfile"
+            android:label="View Profile"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -44,7 +44,7 @@
         </activity>
         <activity
             android:name=".ViewProgress.ViewProgressActivity"
-            android:label="ViewProgress"
+            android:label="View Progress"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -52,7 +52,7 @@
         </activity>
         <activity
             android:name=".AddExercise.AddExerciseActivity"
-            android:label="AddExercise">
+            android:label="Add Exercise">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -63,7 +63,17 @@
         </activity>
         <activity
             android:name=".OnboardingActivity2"
-            android:label="Welcome">
+            android:label="Information and Goals">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".OnboardingActivity" />
+        </activity>
+        <activity
+            android:name=".ViewProfile.ViewProfile2"
+            android:label="Information and Goals">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ViewProfile.ViewProfileActivity" />
         </activity>
     </application>
 

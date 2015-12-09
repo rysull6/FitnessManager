@@ -91,6 +91,9 @@
 
         <Button
             android:id="@+id/negButton"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="4dp"
             android:layout_width="120dp"
             android:layout_height="60dp"
             android:layout_gravity="left"

@@ -16,8 +16,6 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.hci.ryan.fitnessmanager.SetupRoutine.SetupRoutineActivity;
-
 import java.util.Set;
 
 /**
@@ -64,6 +62,7 @@ public class SetupRoutineDialog extends android.support.v4.app.DialogFragment {
 
         Button neg = (Button)v.findViewById(R.id.negButton);
         neg.setText("Remove");
+        neg.setBackgroundColor(getResources().getColor(R.color.PaleVioletRed));
         neg.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // When button is clicked, call up to owning activity.

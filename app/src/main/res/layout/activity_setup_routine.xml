@@ -70,4 +70,13 @@
         android:layout_height="360dp"
         />
 
+    <Button
+        android:layout_width="240dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@color/PaleVioletRed"
+        android:text="Clear Day"
+        android:onClick="clearDay"/>
+
 </LinearLayout>
